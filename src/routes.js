@@ -8,7 +8,9 @@ const getTasks = require('./Controllers/getTasks');
 const login = require('./Controllers/login');
 const signUp = require('./Controllers/signUp');
 
-
+routes.get('/', (req, res) => {
+  return res.status(200).json({ message: 'teste' })
+})
 routes.post('/signup', signUp);
 routes.post('/login', login);
 
