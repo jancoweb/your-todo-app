@@ -1,7 +1,7 @@
 create database todoapp
 
 create table users(
-  id serial primaty key,
+  id serial primary key,
   name text not null,
   email text not null,
   password text not null
