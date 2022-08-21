@@ -7,7 +7,7 @@ const editTask = async (req, res) => {
 
   try {
     const task = await knex('tasks').where({ id: taskId, user_id: userId });
-    if (!task) return res.status(404).json({ message: 'Tarefa não pode ser encontrada' });
+    if (!task[0]) return res.status(404).json({ message: 'Tarefa não pode ser encontrada' });
 
     await knex('tasks').where({ id: taskId }).update({
       title: title

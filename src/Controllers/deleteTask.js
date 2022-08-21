@@ -7,7 +7,7 @@ const deleteTask = async (req, res) => {
   try {
 
     const task = await knex('tasks').where({ id: taskId, user_id: userId });
-    if (!task) return res.status(404).json({ message: 'Não foi possível encontrar a task' })
+    if (!task[0]) return res.status(404).json({ message: 'Não foi possível encontrar a task' })
 
     await knex('tasks').delete().where({ id: taskId });
 
