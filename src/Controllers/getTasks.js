@@ -4,7 +4,7 @@ const getTasks = async (req, res) => {
   const { id: userId } = req.user;
 
   try {
-    const allTasks = await knex('tasks').where({ user_id: userId });
+    const allTasks = await knex('tasks').where({ user_id: userId }).orderBy('id', 'desc');
 
     return res.status(200).json(allTasks);
 
